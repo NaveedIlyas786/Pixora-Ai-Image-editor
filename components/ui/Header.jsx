@@ -1,5 +1,11 @@
 'use client'
-import { SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  SignUpButton,
+  UserButton,
+} from '@clerk/nextjs'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -7,7 +13,7 @@ import React from 'react'
 import { Button } from './button'
 import { useStoreUser } from '../../hooks/useStoreUser'
 import { BarLoader } from 'react-spinners'
-import { Authenticated, Unauthenticated } from 'convex/react'
+// import { Authenticated, Unauthenticated } from 'convex/react'
 const Header = () => {
   const path = usePathname()
   const { isLoading } = useStoreUser()
@@ -49,15 +55,15 @@ const Header = () => {
           </div>
         )}
         <div className='flex items-center gap-3 ml-10 md:ml-20'>
-          <Unauthenticated>
+          <SignedOut>
             <SignInButton>
               <Button variant='glass'>Sign In</Button>
             </SignInButton>
             <SignUpButton>
               <Button variant='primary'>Get Started</Button>
             </SignUpButton>
-          </Unauthenticated>
-          <Authenticated>
+          </SignedOut>
+          <SignedIn>
             <UserButton
               appearance={{
                 elements: {
@@ -65,7 +71,7 @@ const Header = () => {
                 },
               }}
             />
-          </Authenticated>
+          </SignedIn>
         </div>
         {isLoading && (
           <div className='fixed bottom-0 left-0 w-full z-40 flex justify-center'>
