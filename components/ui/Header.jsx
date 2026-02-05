@@ -13,6 +13,7 @@ import React from 'react'
 import { Button } from './button'
 import { useStoreUser } from '../../hooks/useStoreUser'
 import { BarLoader } from 'react-spinners'
+import { LayoutDashboard } from 'lucide-react'
 // import { Authenticated, Unauthenticated } from 'convex/react'
 const Header = () => {
   const path = usePathname()
@@ -64,6 +65,12 @@ const Header = () => {
             </SignUpButton>
           </SignedOut>
           <SignedIn>
+            <Link href='/dashboard'>
+              <Button variant='glass'>
+                <LayoutDashboard className=' h-4 w-4' />
+                <span className='hidden md:flex'>Dashboard</span>
+              </Button>
+            </Link>
             <UserButton
               appearance={{
                 elements: {

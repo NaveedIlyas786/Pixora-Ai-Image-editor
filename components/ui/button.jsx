@@ -17,7 +17,7 @@ const buttonVariants = cva(
         secondary:
           'bg-secondary text-secondary-foreground hover:bg-secondary/80',
         primary:
-          'backdrop-blur-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white border-transparent hover:shadow-2xl hover:shadow-blue-500/25 hover:transform hover:scale-105',
+          'backdrop-blur-lg bg-gradient-to-r from-purple-500 from-5% via-cyan-600 via-70% to-cyan-700 text-white border-transparent hover:shadow-2xl hover:shadow-cyan-500/25 hover:transform hover:scale-105',
         glass:
           'backdrop-blur-lg bg-white/10 text-white border-white/20 hover:bg-white/20 hover:transform hover:scale-105',
         ghost:
@@ -38,7 +38,7 @@ const buttonVariants = cva(
       variant: 'default',
       size: 'default',
     },
-  }
+  },
 )
 
 function Button({ className, variant, size, asChild = false, ...props }) {
